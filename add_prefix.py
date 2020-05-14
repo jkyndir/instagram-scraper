@@ -1,3 +1,4 @@
+# Add prefix to all the files in a specified folder.
 import os
 def add_prefix(fldr_path, prefix):
     fnms = os.listdir(fldr_path)
