@@ -3,8 +3,7 @@ from setuptools import setup, find_packages
 
 requires = [
     'requests>=2.18.4',
-    'tqdm>=3.8.0',
-    'moviepy>=1.0.0'
+    'tqdm>=3.8.0'
 ]
 
 if sys.version_info < (3, 2):
@@ -13,11 +12,11 @@ if sys.version_info < (3, 2):
 
 setup(
     name='instagram-scraper',
-    version='1.8.1',
+    version='1.10.3',
     description=("instagram-scraper is a command-line application written in Python"
                  " that scrapes and downloads an instagram user\'s photos and videos. Use responsibly."),
-    url='https://github.com/rarcega/instagram-scraper',
-    download_url='https://github.com/rarcega/instagram-scraper/tarball/1.8.1',
+    url='https://github.com/arc298/instagram-scraper',
+    download_url='https://github.com/arc298/instagram-scraper/tarball/1.10.3',
     author='Richard Arcega',
     author_email='hello@richardarcega.com',
     license='Public domain',

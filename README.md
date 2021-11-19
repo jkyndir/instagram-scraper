@@ -6,7 +6,7 @@ A `add_prefix.py` file was added and it contains a function which can add prefie
 
 Instagram Scraper
 =================
-[![PyPI](https://img.shields.io/pypi/v/instagram-scraper.svg)](https://pypi.python.org/pypi/instagram-scraper) [![Build Status](https://travis-ci.org/rarcega/instagram-scraper.svg?branch=master)](https://travis-ci.org/rarcega/instagram-scraper)
+[![PyPI](https://img.shields.io/pypi/v/instagram-scraper.svg)](https://pypi.python.org/pypi/instagram-scraper) [![Build Status](https://travis-ci.com/arc298/instagram-scraper.svg?branch=master)](https://travis-ci.com/arc298/instagram-scraper)
 
 instagram-scraper is a command-line application written in Python that scrapes and downloads an instagram user's photos and videos. Use responsibly.
 
@@ -127,7 +127,7 @@ OPTIONS
                         set.
 
 --media-types -t        Specify media types to scrape. Enter as space separated values. 
-                        Valid values are image, video, story (story-image & story-video),
+                        Valid values are image, video, story (story-image & story-video), broadcast
                         or none. Stories require a --login-user and --login-pass to be defined.
                       
 --latest                Scrape only new media since the last scrape. Uses the last modified
@@ -156,7 +156,7 @@ OPTIONS
 --profile-metadata      Saves the user profile metadata to  <destination>/<username>.json.
 
 --proxies               Enable use of proxies, add a valid JSON with http or/and https urls.
-                        Example: '{"http": "http://<ip>:<port>", "http": "https://<ip>:<port>" }'
+                        Example: '{"http": "http://<ip>:<port>", "https": "https://<ip>:<port>" }'
 
 --comments             Saves the comment metadata associated with the posts to 
                        <destination>/<username>.json. Implicitly includes --media-metadata.
@@ -196,6 +196,30 @@ OPTIONS
 
                         If the template is invalid, it will revert to the default.
                         Does not work with --tag and --location.
+```
+Docker
+-------
+How to install Docker see https://docs.docker.com/engine/install/.
+
+Don't forget to run postinstall steps for Linux https://docs.docker.com/engine/install/linux-postinstall/.
+
+#### Build
+```bash
+$ docker build -t instagram-scraper .
+```
+#### Run
+```bash
+$ docker run -it --rm -v $(pwd)/data:/instagram-scraper/data instagram-scraper -i -d data/<folder_name> <params>
+```
+If you want to save `cookiejar` to you HDD you have to run it like this:
+```bash
+$ docker run -it --rm -v $(pwd)/data:/instagram-scraper/data instagram-scraper -i -d data/<folder_name> --cookiejar data/my_cookies <params>
+```
+
+#### Run built image
+You could run already built image from here https://hub.docker.com/repository/docker/alexnik/instagram-scraper
+```bash
+$ docker run -it --rm -v $(pwd)/data:/instagram-scraper/data alexnik/instagram-scraper -i -d data/<folder_name> --cookiejar data/my_cookies <params>
 ```
 
 Develop
